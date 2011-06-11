@@ -10,7 +10,7 @@ my $app = sub {
     my $title = $req->param('title');
     (my $message = $req->param('message')) =~ s/\A:\s+(.*)\z/$1/;
 
-    `growlnotify -m $message $title`;
+    `growlnotify -m '$message' '$title'`;
 
     return ["200", ["Content-Type", "text/javascript"], []];
 }
