@@ -2,13 +2,15 @@
 
 ## Requirements ##
 
+Growl http://growl.info/
+
 Firefox http://mozilla.jp/firefox/
 
 Greasemonkey https://addons.mozilla.org/ja/firefox/addon/greasemonkey/
 
 Plack http://plackperl.org/
 
-Growl with growlnotify(1) http://growl.info/ http://growl.info/extras.php#growlnotify
+Cocoa::Growl http://search.cpan.org/dist/Cocoa-Growl/
 
 ## How to use ##
 
