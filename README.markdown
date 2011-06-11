@@ -2,6 +2,10 @@
 
 ## Requirements ##
 
+Firefox http://mozilla.jp/firefox/
+
+Greasemonkey https://addons.mozilla.org/ja/firefox/addon/greasemonkey/
+
 Plack http://plackperl.org/
 
 Growl with growlnotify(1) http://growl.info/ http://growl.info/extras.php#growlnotify
