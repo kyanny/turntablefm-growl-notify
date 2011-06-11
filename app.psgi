@@ -13,7 +13,7 @@ sub usage {
 sub register {
     growl_register(
         app => 'Turntable.fm growl notify',
-        icon => File::Spec->catfile(getcwd(), 'turntablefm.jpg'),
+        icon => File::Spec->catfile(getcwd(), 'icon.jpg'),
         notifications => [qw(NewChatMessage)],
     );
 }
