@@ -5,10 +5,15 @@ use Plack::Request;
 use Cwd;
 use File::Spec;
 use Cocoa::Growl ':all';
-use AnyEvent;
-use AnyEvent::Impl::NSRunLoop;
+my $can_callback = eval {
+    require AnyEvent;
+    require AnyEvent::Impl::NSRunLoop;
+};
 
-my $cv = AnyEvent->condvar;
+my $cv;
+if ($can_callback) {
+    $cv = AnyEvent->condvar;
+}
 
 sub usage {
     print "!! Growl not installed or not running !!\n";
@@ -29,8 +34,10 @@ sub notify {
         title => $title,
         description => $message,
         on_click => sub {
-            `open -a Firefox`;
-            $cv->send;
+            if ($can_callback) {
+                `open -a Firefox`;
+                $cv->send;
+            }
         },
     );
 }
