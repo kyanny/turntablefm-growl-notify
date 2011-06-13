@@ -5,6 +5,10 @@ use Plack::Request;
 use Cwd;
 use File::Spec;
 use Cocoa::Growl ':all';
+use AnyEvent;
+use AnyEvent::Impl::NSRunLoop;
+
+my $cv = AnyEvent->condvar;
 
 sub usage {
     print "!! Growl not installed or not running !!\n";
@@ -24,6 +28,10 @@ sub notify {
         name => 'NewChatMessage',
         title => $title,
         description => $message,
+        on_click => sub {
+            `open -a Firefox`;
+            $cv->send;
+        },
     );
 }
 
